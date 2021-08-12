@@ -38,13 +38,17 @@ def extract_id_from_id_url(url):
     time.sleep(2)
     return steamid
 
+def is_profile_url(url):
+    return (
+        "://steamcommunity.com/profiles/" in
+        url[0:len('https://steamcommunity.com/profiles/')]
+    )
+
 def get_id64(inputs_norm_end):
     output = []
     for input_url in inputs_norm_end:
         print("running for",input_url)
-        if (
-            "://steamcommunity.com/profiles/" in
-            input_url[0:len('https://steamcommunity.com/profiles/')]):
+        if is_profile_url(input_url):
             output.append(extract_id_from_profile_url(input_url))
         else:
             output.append(extract_id_from_id_url(input_url))
