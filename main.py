@@ -8,12 +8,13 @@ from dotenv import load_dotenv
 
 load_dotenv(".env")
 steam_api_key = os.getenv('STEAM_DEV_API_KEY')
+sleep_between_calls = float(os.getenv('SLEEP_BETWEEN_STEAM_CALLS', 2))
 
 if steam_api_key is None:
     raise(".env file not set up correctly")
 
 steamapi.core.APIConnection(api_key=steam_api_key, validate_key=True)
-sleep_between_calls = 3  # seconds
+
 
 inputs = []
 with open('steam_ids.txt') as my_file:
