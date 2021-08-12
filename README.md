@@ -11,3 +11,5 @@ Convert list of steam URL links to steamid64
 3. Make sure the `.env` file has a new line at the end of it.
 3. Open command prompt (or however you use pip) and do a `pip install python-dotenv`.
 4. Run the program with `python .\main.py` in a powershell in this folder.
+
+The outputs are a CSV called `steam_ids_output.csv` with the columns URL (the original url) and steamid64 (the corresponding steamid64)
